@@ -14,28 +14,17 @@ call plug#begin()
 
 "---Plug-in install
 
+"---File tree
+Plug 'preservim/nerdtree'
+
 "--Autocomplete
-"Plug 'vim-scripts/AutoComplPop'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-scripts/AutoComplPop'
 
 "---Themes install
 Plug 'sainnhe/everforest'
+Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 
 call plug#end()
 
 "---Colorscheme init
-colorscheme everforest 
-
-"---Autocomplete config
-" use <tab> for trigger completion and navigate to the next complete item
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ coc#pum#visible() ? "\<C-n>":
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-
-
+colorscheme everforest
