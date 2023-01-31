@@ -25,7 +25,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "--Arduino support
-#Plug 'stevearc/vim-arduino'
+"Plug 'stevearc/vim-arduino'
 
 "---Themes install
 Plug 'sainnhe/everforest'
