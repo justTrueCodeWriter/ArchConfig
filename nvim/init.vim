@@ -27,6 +27,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "--Arduino support
 "Plug 'stevearc/vim-arduino'
 
+"--Obsidian.nvim
+Plug 'preservim/vim-markdown'
+Plug 'godlygeek/tabular'
+
+Plug 'epwalsh/obsidian.nvim'
+
 "---Themes install
 Plug 'sainnhe/everforest'
 Plug 'rebelot/kanagawa.nvim'
