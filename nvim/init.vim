@@ -1,23 +1,5 @@
 "---Custom startscreen
-let g:startify_custom_header = [
-			\'________________00',
-			\'_______________0000',
-			\'___0__________000000___________0',
-			\'___00_________000000___________0',
-			\'____0000______000000__________00',
-			\'____000000____0000000_____00000',
-			\'_0_____0000000_000000_00000000___0',
-			\'00______000000_00000_0000000____00',
-			\'0000_____000000_000_000000____0000',
-			\'_000000000__0000_0_000_0_000000000',
-			\'____000000000__0_0_0_00000000000',
-			\'________000000000000000000000',
-			\'______________000_0_0000',
-			\'____________00000_0__00000',
-			\'__________00_______0_______00',
-			\'____________________0',
-\ '',
-\ ]
+source $HOME/.config/nvim/startscreen.vim
 
 set relativenumber
 set number
@@ -40,19 +22,19 @@ call plug#begin()
 "---File tree
 Plug 'preservim/nerdtree'
 
+"---Cmake
+Plug 'cdelledonne/vim-cmake'
+
 "--Autocomplete
 "Plug 'vim-scripts/AutoComplPop'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+"--LaTeX
+Plug 'lervag/vimtex'
+
 "--Arduino support
 "Plug 'stevearc/vim-arduino'
-
-"--Obsidian.nvim
-Plug 'preservim/vim-markdown'
-Plug 'godlygeek/tabular'
-
-Plug 'epwalsh/obsidian.nvim'
 
 "---Themes install
 Plug 'sainnhe/everforest'
@@ -67,3 +49,12 @@ call plug#end()
 colorscheme kanagawa
 
 
+"---LaTeX config
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+let maplocalleader = ""
+nmap <F8> <plug>(vimtex-view)
