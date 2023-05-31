@@ -18,3 +18,11 @@ let g:startify_custom_header = [
 			\'			!______/_____________________________\______!',
 \ '',
 \]
+
+let g:startify_bookmarks = [ 
+			\{ 'c': '~/.config/nvim/' },
+			\]
+
+let g:startify_lists = [
+      \ { 'header': ['   Bookmarks'], 'type': 'bookmarks' },
+      \ ]
