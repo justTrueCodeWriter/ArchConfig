@@ -22,6 +22,9 @@ call plug#begin()
 "---File tree
 Plug 'preservim/nerdtree'
 
+"---Debugger
+Plug 'puremourning/vimspector'
+
 "---Cmake
 Plug 'cdelledonne/vim-cmake'
 
@@ -34,7 +37,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 
 "--Arduino support
-"Plug 'stevearc/vim-arduino'
+Plug 'stevearc/vim-arduino'
 
 "---Themes install
 Plug 'sainnhe/everforest'
@@ -48,6 +51,8 @@ call plug#end()
 "---Colorscheme init
 colorscheme kanagawa
 
+"---Debugger enable
+let g:vimspector_enable_mappings = 'HUMAN'
 
 "---LaTeX config
 let g:tex_flavor='latex'
