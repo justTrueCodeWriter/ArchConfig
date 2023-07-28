@@ -1,6 +1,8 @@
 "---Custom startscreen
 source $HOME/.config/nvim/startscreen.vim
 
+set termguicolors
+
 set relativenumber
 set number
 set encoding=utf-8
@@ -13,6 +15,11 @@ set autoindent
 set complete+=kspell
 set completeopt=menuone,longest
 
+"---Netrw file explorer
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 3
+
 packadd termdebug
 
 call plug#begin()
@@ -20,10 +27,13 @@ call plug#begin()
 "---Plug-in install
 
 "---File tree
-Plug 'preservim/nerdtree'
+"Plug 'preservim/nerdtree'
 
-"---Debugger
-Plug 'puremourning/vimspector'
+"---Telescope & fzf
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 
 "---Cmake
 Plug 'cdelledonne/vim-cmake'
@@ -37,11 +47,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 
 "--Arduino support
-Plug 'stevearc/vim-arduino'
+"Plug 'stevearc/vim-arduino'
 
 "---Themes install
 Plug 'sainnhe/everforest'
 Plug 'rebelot/kanagawa.nvim'
+Plug 'savq/melange-nvim'
 
 "---Custom startscreen
 Plug 'mhinz/vim-startify'
@@ -49,10 +60,8 @@ Plug 'mhinz/vim-startify'
 call plug#end()
 
 "---Colorscheme init
-colorscheme kanagawa
+colorscheme kanagawa-dragon
 
-"---Debugger enable
-let g:vimspector_enable_mappings = 'HUMAN'
 
 "---LaTeX config
 let g:tex_flavor='latex'
@@ -63,3 +72,12 @@ let g:tex_conceal='abdmg'
 
 let maplocalleader = ""
 nmap <F8> <plug>(vimtex-view)
+
+"---Telescope binds
+nmap ,ff <cmd>Telescope find_files<cr>
+nmap ,fg <cmd>Telescope live_grep<cr>
+
+"---Telescope fzf plugin
+lua << EOF
+require('telescope').load_extension('fzf')
+EOF
