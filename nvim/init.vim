@@ -43,6 +43,9 @@ Plug 'cdelledonne/vim-cmake'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+"---Debugger
+Plug 'puremourning/vimspector'
+
 "--LaTeX
 Plug 'lervag/vimtex'
 
@@ -62,6 +65,8 @@ call plug#end()
 "---Colorscheme init
 colorscheme kanagawa-dragon
 
+"---Debugger enable
+let g:vimspector_enable_mappings = 'HUMAN'
 
 "---LaTeX config
 let g:tex_flavor='latex'
@@ -74,8 +79,8 @@ let maplocalleader = ""
 nmap <F8> <plug>(vimtex-view)
 
 "---Telescope binds
-nmap ,ff <cmd>Telescope find_files<cr>
-nmap ,fg <cmd>Telescope live_grep<cr>
+nmap <space>ff <cmd>Telescope find_files<cr>
+nmap <space>fg <cmd>Telescope live_grep<cr>
 
 "---Telescope fzf plugin
 lua << EOF
