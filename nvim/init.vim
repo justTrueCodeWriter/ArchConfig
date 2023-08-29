@@ -15,6 +15,8 @@ set autoindent
 set complete+=kspell
 set completeopt=menuone,longest
 
+syntax enable
+
 "---Netrw file explorer
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -78,11 +80,12 @@ let g:tex_conceal='abdmg'
 let maplocalleader = ""
 nmap <F8> <plug>(vimtex-view)
 
+
 "---Telescope binds
 nmap <space>ff <cmd>Telescope find_files<cr>
 nmap <space>fg <cmd>Telescope live_grep<cr>
 
-"---Telescope fzf plugin
 lua << EOF
+--Telescope fzf plugin
 require('telescope').load_extension('fzf')
 EOF

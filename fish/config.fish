@@ -7,5 +7,8 @@ end
 # Aliases
 alias vim="nvim"
 alias nvimdiff="nvim -d"
+alias emacs="emacs -nw"
+
+source ~/.local/share/toolcat-comp
 
 set PATH $PATH:~/.local/bin/
