@@ -67,6 +67,12 @@ call plug#end()
 "---Colorscheme init
 colorscheme kanagawa-dragon
 
+"---Orgmode include
+filetype on
+if &filetype ==# "org"
+	source $HOME/.config/nvim/orgmode.vim
+endif
+
 "---Debugger enable
 let g:vimspector_enable_mappings = 'HUMAN'
 
