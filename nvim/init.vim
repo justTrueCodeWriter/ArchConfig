@@ -2,6 +2,7 @@
 source $HOME/.config/nvim/startscreen.vim
 
 set termguicolors
+set cursorline
 
 set relativenumber
 set number
