@@ -29,28 +29,16 @@ call plug#begin()
 
 "---Plug-in install
 
-"---File tree
-"Plug 'preservim/nerdtree'
-
 "---Telescope & fzf
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 
-"---Cmake
-Plug 'cdelledonne/vim-cmake'
-
 "--Autocomplete
 "Plug 'vim-scripts/AutoComplPop'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-"---Debugger
-Plug 'puremourning/vimspector'
-
-"--LaTeX
-Plug 'lervag/vimtex'
 
 "--Arduino support
 "Plug 'stevearc/vim-arduino'
@@ -63,6 +51,10 @@ Plug 'savq/melange-nvim'
 "---Custom startscreen
 Plug 'mhinz/vim-startify'
 
+"---VimWiki
+Plug 'vimwiki/vimwiki'
+
+
 call plug#end()
 
 "---Colorscheme init
@@ -73,20 +65,6 @@ filetype on
 if &filetype ==# "org"
 	source $HOME/.config/nvim/orgmode.vim
 endif
-
-"---Debugger enable
-let g:vimspector_enable_mappings = 'HUMAN'
-
-"---LaTeX config
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
-
-let maplocalleader = ""
-nmap <F8> <plug>(vimtex-view)
-
 
 "---Telescope binds
 nmap <space>ff <cmd>Telescope find_files<cr>
