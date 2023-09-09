@@ -31,7 +31,7 @@ Section "InputClass"
 EndSection
 ```
 # Mouse
-Example configuration in `/usr/share/X11/xorg.conf.d/40-libinput.conf`
+Example configuration in `/etc/X11/xorg.conf.d/40-libinput.conf`
 ```
 Section "InputClass"
         Identifier "libinput pointer catchall"
