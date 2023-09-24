@@ -62,9 +62,9 @@ colorscheme kanagawa-dragon
 
 "---Orgmode include
 filetype on
-if &filetype ==# "org"
+"if &filetype ==# "org"
 	source $HOME/.config/nvim/orgmode.vim
-endif
+"endif
 
 "---Telescope binds
 nmap <space>ff <cmd>Telescope find_files<cr>

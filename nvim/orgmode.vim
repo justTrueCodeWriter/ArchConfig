@@ -1,5 +1,1 @@
-command -nargs=+ Sched :r!date "+SCHEDULED: <\%Y-\%m-\%d \%a>" --date="<args>"
-
-
-
-
+command -nargs=+ Org :r!date "+<\%Y-\%m-\%d \%a>" --date="<args>"
