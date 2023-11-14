@@ -15,6 +15,7 @@ set shiftwidth=2
 set autoindent
 set complete+=kspell
 set completeopt=menuone,longest
+set noshowmode 
 
 syntax enable
 
@@ -112,6 +113,10 @@ require 'nt-cpp-tools'.setup({
         }
     }
 })
+--Lualine
+require('lualine').setup {
+  options = { theme = 'everforest' }
+}
 --Load plugins file
 require('plugins')
 EOF
