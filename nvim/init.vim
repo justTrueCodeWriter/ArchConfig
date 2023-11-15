@@ -115,7 +115,7 @@ require 'nt-cpp-tools'.setup({
 })
 --Lualine
 require('lualine').setup {
-  options = { theme = 'everforest' }
+  options = { theme = 'gruvbox_dark' }
 }
 --Load plugins file
 require('plugins')
