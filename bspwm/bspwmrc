@@ -25,3 +25,5 @@ bspc rule -a Chromium desktop='^3'
 bspc rule -a mplayer2 state=floating
 bspc rule -a arkanoix state=floating 
 bspc rule -a Zathura state=tiled
+
+syncthing
