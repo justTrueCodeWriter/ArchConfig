@@ -19,9 +19,8 @@ bspc config gapless_monocle      true
 bspc config focused_border_color '#A1B19F'
 
 bspc rule -a firefox desktop='^2' 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Gimp desktop='^5' state=floating follow=on
 bspc rule -a obsidian desktop='^3'
-bspc rule -a Chromium desktop='^3'
 bspc rule -a mplayer2 state=floating
 bspc rule -a arkanoix state=floating 
 bspc rule -a Zathura state=tiled
