@@ -5,6 +5,7 @@ if status is-interactive
 end
 
 # Aliases
+alias vv="nvim"
 alias nvimdiff="nvim -d"
 alias emacs="emacs -nw"
 
