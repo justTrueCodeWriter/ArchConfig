@@ -82,6 +82,17 @@ nmap <space>fg <cmd>Telescope live_grep<cr>
 "---Call compolation script
 nmap <F7> <cmd>!./comp.sh<cr>
 
+"---Coc lsp
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 lua << EOF
 --Smooth scrolling
 require('neoscroll').setup({
