@@ -79,7 +79,7 @@ filetype on
 nmap <space>ff <cmd>Telescope find_files<cr>
 nmap <space>fg <cmd>Telescope live_grep<cr>
 
-"---Call compolation script
+"---Call compilation script
 nmap <F7> <cmd>!./comp.sh<cr>
 
 "---Coc lsp
@@ -128,6 +128,7 @@ require 'nt-cpp-tools'.setup({
 require('lualine').setup {
   options = { theme = 'gruvbox_dark' }
 }
+
 --Load plugins file
 require('plugins')
 EOF
