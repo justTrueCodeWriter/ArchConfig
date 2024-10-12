@@ -4,6 +4,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+export EDITOR="nvim"
+
 # Aliases
 alias vv="nvim"
 alias nvimdiff="nvim -d"
@@ -15,4 +17,5 @@ set PATH $PATH:~/.local/bin/
 
 #NNN
 export NNN_PLUG='p:preview-tui;t:preview-tabbed'
+export NNN_USE_EDITOR=1
 set --export NNN_FIFO "/tmp/nnn.fifo"
