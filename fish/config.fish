@@ -12,3 +12,7 @@ alias emacs="emacs -nw"
 source ~/.local/share/toolcat-comp
 
 set PATH $PATH:~/.local/bin/
+
+#NNN
+export NNN_PLUG='p:preview-tui;t:preview-tabbed'
+set --export NNN_FIFO "/tmp/nnn.fifo"
