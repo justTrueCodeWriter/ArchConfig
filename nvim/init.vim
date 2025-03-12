@@ -51,9 +51,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sainnhe/everforest'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'savq/melange-nvim'
-
-"---Smooth scrolling
-Plug 'karb94/neoscroll.nvim'
+Plug 'ofirgall/ofirkai.nvim'
 
 "---Custom startscreen
 Plug 'mhinz/vim-startify'
@@ -61,13 +59,17 @@ Plug 'mhinz/vim-startify'
 "---VimWiki
 Plug 'vimwiki/vimwiki'
 
+"---Latex
+Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'tag': 'v2.15' }
+
 call plug#end()
 
 "---Debugger
 let g:vimspector_enable_mappings = 'HUMAN'
 
 "---Colorscheme init
-colorscheme kanagawa-dragon
+colorscheme ofirkai
 
 "---Orgmode include
 filetype on
@@ -78,6 +80,9 @@ filetype on
 "---Telescope binds
 nmap <space>ff <cmd>Telescope find_files<cr>
 nmap <space>fg <cmd>Telescope live_grep<cr>
+
+"--Latex
+let g:vimtex_view_method = 'zathura'
 
 "---Call compilation script
 nmap <F7> <cmd>!./comp.sh<cr>
@@ -94,20 +99,6 @@ function! s:show_documentation()
 endfunction
 
 lua << EOF
---Smooth scrolling
-require('neoscroll').setup({
-    -- All these keys will be mapped to their corresponding default scrolling animation
-    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
-                '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
-    hide_cursor = true,          -- Hide cursor while scrolling
-    stop_eof = true,             -- Stop at <EOF> when scrolling downwards
-    respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-    cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-    easing_function = nil,       -- Default easing function
-    pre_hook = nil,              -- Function to run before the scrolling animation starts
-    post_hook = nil,             -- Function to run after the scrolling animation ends
-    performance_mode = false,    -- Disable "Performance Mode" on all buffers.
-})
 --Telescope fzf plugin
 require('telescope').load_extension('fzf')
 --Cpp tools
