@@ -6,6 +6,8 @@ end
 
 bind \ec accept-autosuggestion
 
+export TERM=xterm-256color
+
 export EDITOR="nvim"
 
 # Pyenv
@@ -26,3 +28,6 @@ set PATH $PATH:~/.local/bin/
 export NNN_PLUG='p:preview-tui;d:dragdrop'
 export NNN_USE_EDITOR=1
 set --export NNN_FIFO "/tmp/nnn.fifo"
+
+#Pyenv
+pyenv init - | source
