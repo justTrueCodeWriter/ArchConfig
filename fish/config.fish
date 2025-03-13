@@ -8,6 +8,10 @@ bind \ec accept-autosuggestion
 
 export EDITOR="nvim"
 
+# Pyenv
+pyenv init - fish | source
+
+
 # Aliases
 alias vv="nvim"
 alias nn="nnn"
