@@ -64,6 +64,9 @@ filetype on
 "---Call compilation script
 nmap <F7> <cmd>!./comp.sh<cr>
 
+"---Open oil file manager
+nnoremap <C-o> :Oil --float .<CR>
+
 "---Coc lsp
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
