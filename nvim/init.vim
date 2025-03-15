@@ -50,6 +50,11 @@ Plug 'nvim-tree/nvim-web-devicons'
 "--File manager
 Plug 'stevearc/oil.nvim'
 
+"--Better tabs
+"Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
+"Plug 'lewis6991/gitsigns.nvim' " OPTIONAL: for git status
+"Plug 'romgrk/barbar.nvim'
+
 call plug#end()
 
 "---Colorscheme init
@@ -84,6 +89,33 @@ require('lualine').setup {
   options = { theme = 'gruvbox-material' }
 }
 
-require("oil").setup()
+--Oil file manager setup
+require("oil").setup({
+  keymaps = {
+    ["<CR>"] = function()
+      local oil = require("oil")
+      local entry = oil.get_cursor_entry()
+      if not entry or not entry.name then
+        return
+      end
+
+      local win_id = vim.api.nvim_get_current_win()
+      local config = vim.api.nvim_win_get_config(win_id)
+      local is_floating = config.relative ~= ""
+
+      local full_path = oil.get_current_dir() .. "/" .. entry.name
+
+      if entry.type == "file" then
+        if is_floating then
+          vim.cmd("tabnew " .. vim.fn.fnameescape(full_path))
+        else
+          vim.cmd("edit " .. vim.fn.fnameescape(full_path))
+        end
+      else
+        oil.open()
+      end
+    end,
+  },
+})
 
 EOF
