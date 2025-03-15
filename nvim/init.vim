@@ -112,7 +112,7 @@ require("oil").setup({
           vim.cmd("edit " .. vim.fn.fnameescape(full_path))
         end
       else
-        oil.open()
+        oil.open(full_path)
       end
     end,
   },
