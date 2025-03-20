@@ -7,7 +7,8 @@ fi
 
 echo "---HELLO AND WELCOME ABOARD---"
 
-echo "sxhkd & exec bspwm" > ~/.xinitrc
+echo "sxhkd & 
+exec bspwm" > ~/.xinitrc
 
 pacman -S --noconfirm \
     xorg \
@@ -45,8 +46,10 @@ mv ArchConfig/* ~/.config/
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-echo "Would you like to setup hacker workspace? (y/n)"
-read ans
+systemctl enable sddm.service
+
+echo 
+read -p "Would you like to setup hacker workspace? (y/n): " ans
 
 if [ "$ans" = "y" ]; then
     pacman -S --noconfirm \
@@ -56,5 +59,6 @@ if [ "$ans" = "y" ]; then
         inetutils
 fi
 
+echo
 echo "-----SETUP COMPLETE!-----"
 
