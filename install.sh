@@ -40,7 +40,7 @@ pacman -S --noconfirm \
     syncthing
 
 git clone https://github.com/justTrueCodeWriter/ArchConfig
-mv ArchConfig/* ~/.config/
+mv ArchConfig/* .config/
 
 # Vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
