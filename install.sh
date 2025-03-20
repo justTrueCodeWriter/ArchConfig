@@ -16,6 +16,7 @@ pacman -S --noconfirm \
     sddm \
     picom \
     fish \
+    git \
     udisks2 \
     i3lock \
     polybar \
