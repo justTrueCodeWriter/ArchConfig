@@ -1,5 +1,6 @@
 "---Custom startscreen
 source $HOME/.config/nvim/startscreen.vim
+source ~/.config/nvim/secrets.vim
 
 set termguicolors
 set cursorline
@@ -48,10 +49,14 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 
 "--File manager
-Plug 'stevearc/oil.nvim'
+"Plug 'stevearc/oil.nvim'
 
 "--Sidebar
 Plug 'sidebar-nvim/sidebar.nvim'
+
+"--Wiki
+Plug 'vimwiki/vimwiki'
+
 
 "--Better tabs
 "Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
@@ -86,6 +91,11 @@ function! s:show_documentation()
   endif
 endfunction
 
+"---Setup wiki
+let g:vimwiki_list = [{'path': wiki_path,
+                      \ 'syntax': 'markdown', 'ext': 'md'}]
+
+
 lua << EOF
 --Lualine
 require('lualine').setup {
@@ -112,7 +122,7 @@ require("sidebar-nvim").setup({
 })
 
 --Oil file manager setup
-require("oil").setup({
+--[[require("oil").setup({
   keymaps = {
     ["<CR>"] = function()
       local oil = require("oil")
@@ -139,5 +149,6 @@ require("oil").setup({
     end,
   },
 })
+]]
 
 EOF
