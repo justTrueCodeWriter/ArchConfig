@@ -1,6 +1,5 @@
 "---Custom startscreen
 source $HOME/.config/nvim/startscreen.vim
-source ~/.config/nvim/secrets.vim
 
 set termguicolors
 set cursorline
@@ -18,6 +17,8 @@ set complete+=kspell
 set completeopt=menuone,longest
 set noshowmode 
 set laststatus=0
+
+set conceallevel=1
 
 syntax enable
 
@@ -54,9 +55,12 @@ Plug 'nvim-tree/nvim-web-devicons'
 "--Sidebar
 Plug 'sidebar-nvim/sidebar.nvim'
 
-"--Wiki
-Plug 'vimwiki/vimwiki'
-
+"--Obsidian plugin
+Plug 'nvim-lua/plenary.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'epwalsh/obsidian.nvim'
 
 "--Better tabs
 "Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
@@ -78,9 +82,9 @@ filetype on
 nmap <F7> <cmd>!./comp.sh<cr>
 
 "---Open oil file manager
-nnoremap <C-o> :Oil --float .<CR>
+"nnoremap <C-o> :Oil --float .<CR>
 
-"---Coc lsp
+"---Coc lsp 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -90,11 +94,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-"---Setup wiki
-let g:vimwiki_list = [{'path': wiki_path,
-                      \ 'syntax': 'markdown', 'ext': 'md'}]
-
 
 lua << EOF
 --Lualine
@@ -119,6 +118,31 @@ require("sidebar-nvim").setup({
     },
     datetime = { format = "%a %b %d, %H:%M", clocks = { { name = "local" } } },
     todos = { ignored_paths = { "~" } },
+})
+
+--Treesitter
+require("nvim-treesitter.configs").setup({
+  ensure_installed = { "markdown", "markdown_inline", ... },
+  highlight = {
+    enable = true,
+  },
+})
+
+--Obsidian plugin setup
+local secrets = require("secrets")
+require("obsidian").setup({
+    workspaces = {
+      {
+        name = "personal",
+        path = secrets.obsidian_path,
+      },
+    },
+    follow_url_func = function(url)
+      vim.fn.jobstart({"xdg-open", url})
+    end,
+    follow_img_func = function(img)
+      vim.fn.jobstart({"sxiv", img})
+    end,
 })
 
 --Oil file manager setup
