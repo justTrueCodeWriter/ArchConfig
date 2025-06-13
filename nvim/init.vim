@@ -18,7 +18,7 @@ set completeopt=menuone,longest
 set noshowmode 
 set laststatus=0
 
-set conceallevel=1
+set conceallevel=0
 
 syntax enable
 
