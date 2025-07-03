@@ -18,7 +18,7 @@ set completeopt=menuone,longest
 set noshowmode 
 set laststatus=0
 
-set conceallevel=0
+set conceallevel=1
 
 syntax enable
 
@@ -129,13 +129,17 @@ require("nvim-treesitter.configs").setup({
 })
 
 --Obsidian plugin setup
-local secrets = require("secrets")
+obsidian_path = "~/.symlinks/knowledge_vault/"
+
 require("obsidian").setup({
     workspaces = {
       {
         name = "personal",
-        path = secrets.obsidian_path,
+        path = obsidian_path,
       },
+    },
+    templates = {
+      folder = "Templates"
     },
     follow_url_func = function(url)
       vim.fn.jobstart({"xdg-open", url})

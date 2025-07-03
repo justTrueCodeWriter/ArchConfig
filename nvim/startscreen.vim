@@ -22,6 +22,7 @@ let g:startify_custom_header = [
 let g:startify_bookmarks = [ 
 			\{ 'c': '~/.config/nvim/' },
 			\{ 'o': '~/org/Orgmode.org'},
+      \{ 'v': '~/.symlinks/knowledge_vault/'}
 			\]
 
 let g:startify_lists = [
