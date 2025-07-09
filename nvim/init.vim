@@ -62,6 +62,9 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'epwalsh/obsidian.nvim'
 
+"--Markdown preview
+Plug 'iamcco/markdown-preview.nvim'
+
 "--Better tabs
 "Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
 "Plug 'lewis6991/gitsigns.nvim' " OPTIONAL: for git status
