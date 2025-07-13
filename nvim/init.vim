@@ -63,7 +63,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'epwalsh/obsidian.nvim'
 
 "--Markdown preview
-Plug 'iamcco/markdown-preview.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
 "--Better tabs
 "Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
