@@ -33,7 +33,10 @@ call plug#begin()
 
 "---Plug-in installation
 
-"Plug 'vim-scripts/AutoComplPop'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "---Themes install
@@ -55,25 +58,29 @@ Plug 'nvim-tree/nvim-web-devicons'
 "--Sidebar
 Plug 'sidebar-nvim/sidebar.nvim'
 
+"--Vimwiki plugin
+Plug 'vimwiki/vimwiki'
+
 "--Obsidian plugin
-Plug 'nvim-lua/plenary.nvim'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'epwalsh/obsidian.nvim'
+"Plug 'hrsh7th/nvim-cmp'
+"Plug 'epwalsh/obsidian.nvim'
 
-"--Markdown preview
+"--Markdown in-vim render
+Plug 'MeanderingProgrammer/render-markdown.nvim'
+
+"--Markdown web preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
-
-"--Better tabs
-"Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
-"Plug 'lewis6991/gitsigns.nvim' " OPTIONAL: for git status
-"Plug 'romgrk/barbar.nvim'
 
 call plug#end()
 
+"---Vimwiki setup
+"let g:vimwiki_list = [{'path': '~/.symlinks/knowledge_vault',
+"                      \ 'ext': 'md'}]
+
+
 "---Colorscheme init
 colorscheme ofirkai
+
 
 "---Orgmode include
 filetype on
@@ -131,26 +138,32 @@ require("nvim-treesitter.configs").setup({
   },
 })
 
---Obsidian plugin setup
-obsidian_path = "~/.symlinks/knowledge_vault/"
-
-require("obsidian").setup({
-    workspaces = {
-      {
-        name = "personal",
-        path = obsidian_path,
-      },
-    },
-    templates = {
-      folder = "Templates"
-    },
-    follow_url_func = function(url)
-      vim.fn.jobstart({"xdg-open", url})
-    end,
-    follow_img_func = function(img)
-      vim.fn.jobstart({"sxiv", img})
-    end,
+--Markdown preview
+require('render-markdown').setup({
+    enabled = true,
+    file_types = { 'markdown' },
 })
+
+--Obsidian plugin setup
+-- obsidian_path = "~/.symlinks/knowledge_vault/"
+--
+-- require("obsidian").setup({
+--     workspaces = {
+--       {
+--         name = "personal",
+--         path = obsidian_path,
+--       },
+--     },
+--     templates = {
+--       folder = "Templates"
+--     },
+--     follow_url_func = function(url)
+--       vim.fn.jobstart({"xdg-open", url})
+--     end,
+--     follow_img_func = function(img)
+--       vim.fn.jobstart({"sxiv", img})
+--     end,
+-- })
 
 --Oil file manager setup
 --[[require("oil").setup({
