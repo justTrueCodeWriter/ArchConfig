@@ -58,13 +58,6 @@ Plug 'nvim-tree/nvim-web-devicons'
 "--Sidebar
 Plug 'sidebar-nvim/sidebar.nvim'
 
-"--Vimwiki plugin
-Plug 'vimwiki/vimwiki'
-
-"--Obsidian plugin
-"Plug 'hrsh7th/nvim-cmp'
-"Plug 'epwalsh/obsidian.nvim'
-
 "--Markdown in-vim render
 Plug 'MeanderingProgrammer/render-markdown.nvim'
 
@@ -73,14 +66,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' 
 
 call plug#end()
 
-"---Vimwiki setup
-"let g:vimwiki_list = [{'path': '~/.symlinks/knowledge_vault',
-"                      \ 'ext': 'md'}]
-
-
 "---Colorscheme init
 colorscheme ofirkai
-
 
 "---Orgmode include
 filetype on
@@ -138,32 +125,25 @@ require("nvim-treesitter.configs").setup({
   },
 })
 
---Markdown preview
-require('render-markdown').setup({
-    enabled = true,
-    file_types = { 'markdown' },
-})
+local search_dir = '~/.symlinks/knowledge_vault'
 
---Obsidian plugin setup
--- obsidian_path = "~/.symlinks/knowledge_vault/"
---
--- require("obsidian").setup({
---     workspaces = {
---       {
---         name = "personal",
---         path = obsidian_path,
---       },
---     },
---     templates = {
---       folder = "Templates"
---     },
---     follow_url_func = function(url)
---       vim.fn.jobstart({"xdg-open", url})
---     end,
---     follow_img_func = function(img)
---       vim.fn.jobstart({"sxiv", img})
---     end,
--- })
+--Search by text in knowledge base
+vim.api.nvim_create_user_command('Skt', function()
+require("telescope.builtin").live_grep({
+  search_dirs = { search_dir },
+})
+end,
+  { nargs=0 }
+)
+
+--Search by filename in knowledge base
+vim.api.nvim_create_user_command('Skf', function()
+require("telescope.builtin").find_files({
+  search_dirs = { search_dir },
+})
+end,
+  { nargs=0 }
+)
 
 --Oil file manager setup
 --[[require("oil").setup({
