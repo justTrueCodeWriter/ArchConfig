@@ -1,0 +1,10 @@
+[[mgr.append_keymap]]
+on = ["g", "k"]
+run = "cd ~/.symlinks/cloud"  
+desc = "Go to cloud dir"
+
+[[mgr.append_keymap]]
+on = ["g", "b"]
+run = "cd ~/.symlinks/bookmarks"  
+desc = "Go to bookmarks dir"
+
