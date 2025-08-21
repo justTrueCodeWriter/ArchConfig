@@ -64,6 +64,9 @@ Plug 'MeanderingProgrammer/render-markdown.nvim'
 "--Markdown web preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
+"--Zen mode
+Plug 'folke/zen-mode.nvim'
+
 call plug#end()
 
 "---Colorscheme init
