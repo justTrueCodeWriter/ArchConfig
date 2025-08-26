@@ -95,6 +95,8 @@ function! s:show_documentation()
   endif
 endfunction
 
+command PasteImage :r!save-image-from-clip
+
 lua << EOF
 --Lualine
 require('lualine').setup {
