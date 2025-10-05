@@ -101,7 +101,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-command PasteImage :r!save-image-from-clip
+command PI :r!save-image-from-clip ~/.symlinks/knowledge_vault/IMG/
+command PIH :r!save-image-from-clip 
 
 lua << EOF
 --Lualine
