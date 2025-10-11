@@ -140,7 +140,7 @@ require("nvim-treesitter.configs").setup({
 local search_dir = '~/.symlinks/knowledge_vault'
 
 --Search by text in knowledge base
-vim.api.nvim_create_user_command('Skt', function()
+vim.api.nvim_create_user_command('SKT', function()
 require("telescope.builtin").live_grep({
   search_dirs = { search_dir },
 })
@@ -149,7 +149,7 @@ end,
 )
 
 --Search by filename in knowledge base
-vim.api.nvim_create_user_command('Skf', function()
+vim.api.nvim_create_user_command('SKF', function()
 require("telescope.builtin").find_files({
   search_dirs = { search_dir },
 })
