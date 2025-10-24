@@ -1,0 +1,29 @@
+#!/bin/bash
+
+get_filename() {
+  datetime=$(date "+%Y-%m-%d_%H-%M")
+  filename=$(printf "%s%s%s" "img_" "$datetime" "$1")
+  
+  echo "$filename"
+  return 
+}
+
+targets=$(xclip -selection clipboard -o -t TARGETS 2>/dev/null)
+img_dir=
+
+if [ -n "$1" ]; then
+  img_dir=$1
+fi
+
+if echo "$targets" | grep -q png; then
+  output_file=$(get_filename ".png")
+  xclip -selection clipboard -t image/png -o > $(printf "%s%s" "$img_dir" "$output_file")
+  echo "$output_file"
+elif echo "$targets" | grep -q jpg; then
+  output_file=$(get_filename ".jpg")
+  xclip -selection clipboard -t image/jpeg -o > $(printf "%s%s" "$img_dir" "$output_file")
+  echo "$output_file"
+else
+  echo "No PNG or JPEG image found in clipboard."
+fi
+
