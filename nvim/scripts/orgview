@@ -1,0 +1,14 @@
+#!/bin/bash
+
+mode=$1
+filepath=$2
+
+for counter in {0..7};
+do
+  if [ $mode == "SSC" ]; then
+    grep -E 'TODO.+SCHEDULED: '+$(date "+<%Y-%m-%d %a>" --date=$counter+" day") -n $filepath
+  elif [ $mode == "SDD" ]; then
+    grep -E 'TODO.+DEADLINE: '+$(date "+<%Y-%m-%d %a>" --date=$counter+" day") -n $filepath 
+  fi
+done
+
