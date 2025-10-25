@@ -103,9 +103,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-command PI :r!save-image-from-clip ~/.symlinks/knowledge_vault/IMG/
-command PIH :r!save-image-from-clip 
-
 lua << EOF
 --Lualine
 require('lualine').setup {
@@ -153,6 +150,15 @@ end,
 --Search by filename in knowledge base
 vim.api.nvim_create_user_command('SKF', function()
 require("telescope.builtin").find_files({
+  search_dirs = { search_dir },
+})
+end,
+  { nargs=0 }
+)
+
+--Search by filename in recently opened files 
+vim.api.nvim_create_user_command('SKO', function()
+require("telescope.builtin").oldfiles({
   search_dirs = { search_dir },
 })
 end,
