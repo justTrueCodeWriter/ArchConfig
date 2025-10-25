@@ -5,10 +5,14 @@ filepath=$2
 
 for counter in {0..7};
 do
+  day=$(date "+<%Y-%m-%d %a>" --date=$counter+" day")
+  echo "[___"$day '(+'$counter"d)___]"
   if [ $mode == "SSC" ]; then
-    grep -E 'TODO.+SCHEDULED: '+$(date "+<%Y-%m-%d %a>" --date=$counter+" day") -n $filepath
+    grep -E 'TODO.+SCHEDULED: '+"$day" -n $filepath
   elif [ $mode == "SDD" ]; then
-    grep -E 'TODO.+DEADLINE: '+$(date "+<%Y-%m-%d %a>" --date=$counter+" day") -n $filepath 
+    grep -E 'TODO.+DEADLINE: '+"$day" -n $filepath 
   fi
+  echo -----------------------------------------------------
+  echo 
 done
 
