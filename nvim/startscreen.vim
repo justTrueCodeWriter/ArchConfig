@@ -23,7 +23,8 @@ let g:startify_bookmarks = [
 			\{ 'c': '~/.config/nvim/' },
 			\{ 'o': '~/.symlinks/org/Orgmode.org'},
       \{ 'v': '~/.symlinks/knowledge_vault/'},
-      \{ 'b': '~/.symlinks/web-bookmarks'}
+      \{ 'b': '~/.symlinks/web-bookmarks'},
+      \{ 'p': '~/.symlinks/org/progress.org'}
 			\]
 
 let g:startify_lists = [
