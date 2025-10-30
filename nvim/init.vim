@@ -37,6 +37,8 @@ let g:netrw_browse_split = 3
 
 packadd termdebug
 
+command! -complete=file -nargs=1 TE tabedit <args>
+
 call plug#begin()
 
 "---Plug-in installation

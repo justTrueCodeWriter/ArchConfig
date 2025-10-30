@@ -16,18 +16,17 @@ pyenv init - fish | source
 
 # Aliases
 alias vv="nvim"
-alias nn="nnn"
 alias nvimdiff="nvim -d"
 alias emacs="emacs -nw"
+alias yz="yazi"
+alias dc="docker compose"
+alias daily='vv ~/.symlinks/knowledge_vault/"Daily notes"/$(date +"%Y-%m-%d").md'
 
 source ~/.local/share/toolcat-comp
 
 set PATH $PATH:~/.local/bin/
 
-#NNN
-export NNN_PLUG='p:preview-tui;d:dragdrop'
-export NNN_USE_EDITOR=1
-set --export NNN_FIFO "/tmp/nnn.fifo"
-
 #Pyenv
 pyenv init - | source
+
+set ANDROID_HOME ~/Android/Sdk
