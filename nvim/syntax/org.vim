@@ -8,4 +8,4 @@ highlight DoneWord guifg=green
 highlight SchedWord guifg=lightgreen
 highlight DDWord guifg=lightred
 
-let b:current_syntax = 'org'
+let b:current_syntax = 'org*'
