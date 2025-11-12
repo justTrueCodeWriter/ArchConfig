@@ -1,0 +1,5 @@
+#!/bin/bash
+
+total=$(grep -E "TODO|DONE" $1 --count)
+done=$(grep DONE $1 --count)
+echo Completed $((done*100/total))% [$done/$total]
