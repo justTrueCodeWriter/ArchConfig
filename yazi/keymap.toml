@@ -8,3 +8,7 @@ on = ["g", "b"]
 run = "cd ~/.symlinks/bookmarks"  
 desc = "Go to bookmarks dir"
 
+[[mgr.append_keymap]]
+on = ["g", "s"]
+run = "cd ~/.symlinks/knowledge_vault/STUDY/'4th year'"  
+desc = "Go to uni dir"
