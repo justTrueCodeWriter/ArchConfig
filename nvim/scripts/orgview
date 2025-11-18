@@ -3,7 +3,7 @@
 mode=$1
 filepath=$2
 
-for counter in {0..7};
+for counter in {-1..7};
 do
   day=$(date "+<%Y-%m-%d %a>" --date=$counter+" day")
   echo "[___"$day '(+'$counter"d)___]"
