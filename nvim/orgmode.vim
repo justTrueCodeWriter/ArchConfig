@@ -1,4 +1,4 @@
-command! -nargs=+ ORG exe "normal A " . substitute(system('date "+<%Y-%m-%d %a>" --date="'.<q-args>.'"'), '\n', '', 'g')
+command! -nargs=+ ORG exe "normal a " . substitute(system('date "+<%Y-%m-%d %a>" --date="'.<q-args>.'"'), '\n', '', 'g')
 
 command PI :r!~/.config/nvim/scripts/save-image-from-clip ~/.symlinks/knowledge_vault/IMG/
 command PIH exe "normal i" . substitute(system('~/.config/nvim/scripts/save-image-from-clip'), '\n', '', 'g')
