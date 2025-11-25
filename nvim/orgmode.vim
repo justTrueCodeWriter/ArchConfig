@@ -1,7 +1,7 @@
-command -nargs=+ ORG :r!date "+<\%Y-\%m-\%d \%a>" --date="<args>"
+command! -nargs=+ ORG exe "normal A " . substitute(system('date "+<%Y-%m-%d %a>" --date="'.<q-args>.'"'), '\n', '', 'g')
 
 command PI :r!~/.config/nvim/scripts/save-image-from-clip ~/.symlinks/knowledge_vault/IMG/
-command PIH :r!~/.config/nvim/scripts/save-image-from-clip 
+command PIH exe "normal i" . substitute(system('~/.config/nvim/scripts/save-image-from-clip'), '\n', '', 'g')
 
 "command SSC !terminal ~/.config/nvim/scripts/orgview SSC '%:p'
 command! -nargs=0 SSC terminal ~/.config/nvim/scripts/orgview SSC '%:p'

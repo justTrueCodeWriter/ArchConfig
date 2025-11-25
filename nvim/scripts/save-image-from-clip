@@ -1,7 +1,7 @@
 #!/bin/bash
 
 get_filename() {
-  datetime=$(date "+%Y-%m-%d_%H-%M")
+  datetime=$(date "+%Y-%m-%d_%H-%M-%S")
   filename=$(printf "%s%s%s" "img_" "$datetime" "$1")
   
   echo "$filename"
