@@ -22,7 +22,7 @@ set conceallevel=1
 
 set shell=/bin/fish
 
-set langmap=йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,рh,оj,лk,дl,ж\\;,э',ё\\,яz,чx,сc,мv,иb,тn,ьm,б\\,,ю.,ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х{,Ъ},ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж:,Э\\",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б<,Ю>,Ё/|
+set langmap=йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,рh,оj,лk,дl,ж\\;,э',ё\\,яz,чx,сc,мv,иb,тn,ьm,б\\,,ю.,ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х{,Ъ},ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж:,Э\\",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б<,Ю>,ё/|
 
 imap <C-ц> <C-w>
 imap <C-х> <C-[>
@@ -66,6 +66,9 @@ Plug 'nvim-tree/nvim-web-devicons'
 "--Sidebar
 Plug 'sidebar-nvim/sidebar.nvim'
 
+"--Smooth cursor
+Plug 'sphamba/smear-cursor.nvim'
+
 "--Markdown in-vim render
 Plug 'MeanderingProgrammer/render-markdown.nvim'
 
@@ -104,6 +107,9 @@ function! s:show_documentation()
 endfunction
 
 lua << EOF
+--Smooth cursor
+require('smear_cursor').enabled = true
+
 --Lualine
 require('lualine').setup {
   options = { theme = 'gruvbox-material' }
