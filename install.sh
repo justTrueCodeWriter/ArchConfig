@@ -15,7 +15,6 @@ pacman -S --noconfirm \
     bspwm \
     sxhkd \
     sddm \
-    picom \
     fish \
     git \
     udisks2 \
@@ -27,12 +26,11 @@ pacman -S --noconfirm \
     rofi \
     kitty \
     neovim \
-    ranger \
+    yazi \
     htop \
-    firefox \
     chromium \
-    obsidian \
     fd \
+    feh \
     flameshot \
     sxiv \
     tmux \
@@ -40,7 +38,7 @@ pacman -S --noconfirm \
     syncthing
 
 git clone https://github.com/justTrueCodeWriter/ArchConfig
-mv ArchConfig/* .config/
+mv ArchConfig/* .config/ # TODO: change move dirs to symlinks setup
 
 # Vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -49,7 +47,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 systemctl enable sddm.service
 
 echo 
-read -p "Would you like to setup hacker workspace? (y/n): " ans
+read -p "Would you like to setup CTF workspace? (y/n): " ans
 
 if [ "$ans" = "y" ]; then
     pacman -S --noconfirm \
